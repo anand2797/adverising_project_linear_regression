@@ -1,0 +1,16 @@
+<html>
+<body>
+    <h1>Advertising Project</h1>
+    <form action="{{url_for('predict')}}" method="='post">
+        <input type="'text", name="TV" placeholder="TV" required="'required"/><br>
+        <input type="'text", name="Radio" placeholder="Radio" required="'required"/><br>
+        <input type="'text", name="Newspaper" placeholder="Newspaper" required="'required"/><br>
+
+        <button type="submit">Predict</button>
+
+    </form>
+    <br>
+    <br>
+    {{prediction}}
+</body>
+</html>
