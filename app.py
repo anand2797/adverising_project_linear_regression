@@ -22,9 +22,15 @@ def predict_api():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = [float(x) for x in request.form.values()]
-    input_data = np.array(data)
-    prediction = model.predict(input_data)[0]
+    # data = [float(x) for x in request.form.values()]
+    tv = float(request.form.get('TV'))
+    radio = float(request.form.get('Radio'))
+    newspaper = float(request.form.get('Newspaper'))
+
+    # Create a DataFrame with the input data
+    input_df = pd.DataFrame([[tv, radio, newspaper]])
+    # input_data = np.array(data)
+    prediction = model.predict(input_df)[0]
     return render_template('home.html', prediction = f'The result is {prediction}')
 
 
